@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: const Color(0xff006C71),
         title: const Icon(
-          IonIcons.location,
+          Icons.location_on,
         ),
         centerTitle: true,
         actions: const [
