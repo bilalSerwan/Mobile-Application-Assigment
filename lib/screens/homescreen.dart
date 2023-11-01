@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:icons_plus/icons_plus.dart';
 import 'package:rahand3/Worker.dart';
 import 'package:rahand3/bottom_navigation.dart';
 import 'package:rahand3/drawer.dart';
@@ -30,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: const Color(0xff006C71),
         title: const Icon(
-          Icons.add_location,
+          IonIcons.location,
         ),
         centerTitle: true,
         actions: const [

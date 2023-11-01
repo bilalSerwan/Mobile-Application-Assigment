@@ -23,7 +23,7 @@ class WorkeR {
     WorkeR(
         imagepath: 'images/workerimages/workerimage3.jpg',
         name: 'دارا فایق مەمەد',
-        occupation: 'وەستای ئاو',
+        occupation: ' ئاو',
         phonenumber: '٠٧٥٠١٥٤٣٥٦٧'),
     WorkeR(
         imagepath: 'images/workerimages/workerimage4.jpg',
