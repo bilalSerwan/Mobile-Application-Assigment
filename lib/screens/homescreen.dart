@@ -331,29 +331,8 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Align(
             alignment: Alignment.bottomCenter,
-            child: SizedBox(
-              height: 90,
-              child: Stack(
-                children: [
-                  Positioned(
-                    top: 22,
-                    child: Container(
-                      height: 55,
-                      width: width,
-                      decoration: const BoxDecoration(
-                        color: Color(0xff006C71),
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Bottom_navbar(
-                    indexpage: 0,
-                  ),
-                ],
-              ),
+            child: Bottom_navbar(
+              indexpage: 0,
             ),
           )
         ],

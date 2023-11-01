@@ -248,7 +248,8 @@ class profileScreen extends StatelessWidget {
                   onPressed: () {},
                   child: const Row(
                     children: [
-                      Icon(Icons.fork_right),
+                      Icon(Icons.check_circle),
+                      SizedBox(width: 4),
                       Text('دەنگدان'),
                     ],
                   ),

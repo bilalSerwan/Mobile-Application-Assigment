@@ -6,8 +6,10 @@ class NotificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      bottomNavigationBar: Bottom_navbar(indexpage: 3,),
+    return Scaffold(
+      bottomNavigationBar: Bottom_navbar(
+        indexpage: 3,
+      ),
       body: const Center(
         child: Text('Notfication Screen'),
       ),
