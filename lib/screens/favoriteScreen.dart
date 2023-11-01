@@ -1,92 +1,85 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
-import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
 import 'package:rahand3/Worker.dart';
 import 'package:rahand3/bottom_navigation.dart';
 import 'package:rahand3/drawer.dart';
 
 class FavoriteScreen extends StatefulWidget {
-  int indexpage;
-  FavoriteScreen({required this.indexpage, super.key});
+  FavoriteScreen({super.key});
   @override
   State<FavoriteScreen> createState() => _FavoriteScreenState();
 }
 
 class _FavoriteScreenState extends State<FavoriteScreen> {
-  late CircularBottomNavigationController _navigationController;
   @override
-  void initState() {
-    super.initState();
-    _navigationController =
-        CircularBottomNavigationController(widget.indexpage);
-  }
-
   @override
   Widget build(BuildContext context) {
-    List<WorkeR> favorite_list=[
-    WorkeR(
-        imagepath: 'images/workerimages/workerimage1.jpg',
-        name: 'محمد شوان خدر',
-        occupation: 'جامچی',
-        phonenumber: '٠٧٥٠١٢٣٤٥٦٧'),
-    WorkeR(
-        imagepath: 'images/workerimages/workerimage2.jpg',
-        name: 'محمد شوان خدر',
-        occupation: 'جامچی',
-        phonenumber: '٠٧٥٠١٢٣٤٥٦٧'),
-    WorkeR(
-        imagepath: 'images/workerimages/workerimage3.jpg',
-        name: 'محمد شوان خدر',
-        occupation: 'جامچی',
-        phonenumber: '٠٧٥٠١٢٣٤٥٦٧'),
-    WorkeR(
-        imagepath: 'images/workerimages/workerimage4.jpg',
-        name: 'محمد شوان خدر',
-        occupation: 'جامچی',
-        phonenumber: '٠٧٥٠١٢٣٤٥٦٧'),
-    WorkeR(
-        imagepath: 'images/workerimages/workerimage5.jpg',
-        name: 'محمد شوان خدر',
-        occupation: 'جامچی',
-        phonenumber: '٠٧٥٠١٢٣٤٥٦٧'),
-    WorkeR(
-        imagepath: 'images/workerimages/workerimage6.jpg',
-        name: 'محمد شوان خدر',
-        occupation: 'جامچی',
-        phonenumber: '٠٧٥٠١٢٣٤٥٦٧'),
-    WorkeR(
-        imagepath: 'images/workerimages/workerimage7.jpg',
-        name: 'محمد شوان خدر',
-        occupation: 'جامچی',
-        phonenumber: '٠٧٥٠١٢٣٤٥٦٧'),
-    WorkeR(
-        imagepath: 'images/workerimages/workerimage8.jpg',
-        name: 'محمد شوان خدر',
-        occupation: 'جامچی',
-        phonenumber: '٠٧٥٠١٢٣٤٥٦٧'),
-    WorkeR(
-        imagepath: 'images/workerimages/workerimage9.jpg',
-        name: 'محمد شوان خدر',
-        occupation: 'جامچی',
-        phonenumber: '٠٧٥٠١٢٣٤٥٦٧'),
-    WorkeR(
-        imagepath: 'images/workerimages/workerimage10.jpg',
-        name: 'محمد شوان خدر',
-        occupation: 'جامچی',
-        phonenumber: '٠٧٥٠١٢٣٤٥٦٧'),
-    WorkeR(
-        imagepath: 'images/workerimages/workerimage11.jpg',
-        name: 'محمد شوان خدر',
-        occupation: 'جامچی',
-        phonenumber: '٠٧٥٠١٢٣٤٥٦٧'),
-    WorkeR(
-        imagepath: 'images/workerimages/workerimage12.jpg',
-        name: 'محمد شوان خدر',
-        occupation: 'جامچی',
-        phonenumber: '٠٧٥٠١٢٣٤٥٦٧'),
-  ];
+    List<WorkeR> favorite_list = [
+      WorkeR(
+          imagepath: 'images/workerimages/workerimage1.jpg',
+          name: 'ئەحمەد شوان خدر',
+          occupation: 'جامچی',
+          phonenumber: '٠٧٥٠١٢٣٤٥٦٧'),
+      WorkeR(
+          imagepath: 'images/workerimages/workerimage2.jpg',
+          name: 'محمد شوان نادر',
+          occupation: 'کارەبا',
+          phonenumber: '٠٧٥٧٢٤٧٢٣٦٣'),
+      WorkeR(
+          imagepath: 'images/workerimages/workerimage3.jpg',
+          name: 'دارا فایق مەمەد',
+          occupation: 'وەستای ئاو',
+          phonenumber: '٠٧٥٠١٥٤٣٥٦٧'),
+      WorkeR(
+          imagepath: 'images/workerimages/workerimage4.jpg',
+          name: 'رەهەند دارا حەسەن',
+          occupation: 'لەبخ',
+          phonenumber: '٠٧٥٠١٢٩٧٦٤٥٦٧'),
+      WorkeR(
+          imagepath: 'images/workerimages/workerimage5.jpg',
+          name: 'محمود شوان ',
+          occupation: 'کاشی',
+          phonenumber: '٠٧٥٠١٢٦٧٨٤٥٦٧'),
+      WorkeR(
+          imagepath: 'images/workerimages/workerimage6.jpg',
+          name: 'بیلال سیروان خدر',
+          occupation: 'دیوار',
+          phonenumber: '٠٧٥٠١٢٧٦٥٨٧'),
+      WorkeR(
+          imagepath: 'images/workerimages/workerimage7.jpg',
+          name: 'ئاری شوان جەمال',
+          occupation: 'حەمەلە',
+          phonenumber: '٠٧٥٠١٢٣٦٦٦٧'),
+      WorkeR(
+          imagepath: 'images/workerimages/workerimage8.jpg',
+          name: 'محمد کاروان خدر',
+          occupation: 'پەنجەرە',
+          phonenumber: '٠٧٥٠١٢٩٦٥٦٧'),
+      WorkeR(
+          imagepath: 'images/workerimages/workerimage9.jpg',
+          name: 'محمد ئەحمەد خدر',
+          occupation: 'حەمەلە',
+          phonenumber: '٠٧٥٠١٢١٢٣٤٧'),
+      WorkeR(
+          imagepath: 'images/workerimages/workerimage10.jpg',
+          name: 'نادر شکور  خدر',
+          occupation: 'ئاو',
+          phonenumber: '٠٧٥٠١٢٣٤٥٤٨'),
+      WorkeR(
+          imagepath: 'images/workerimages/workerimage11.jpg',
+          name: 'محمد شوان خدر',
+          occupation: 'جامچی',
+          phonenumber: '٠٧٥٠١٤٥٦٥٤١'),
+      WorkeR(
+          imagepath: 'images/workerimages/workerimage12.jpg',
+          name: '  جەمال محمد ',
+          occupation: 'کارەبا',
+          phonenumber: '٠٧٥٠١٢٥٣٧٦٤٧'),
+    ];
+
     return Scaffold(
-        bottomNavigationBar: Bottom_navbar(
-            navigationController: _navigationController, indexpage: 1),
+        bottomNavigationBar: Bottom_navbar(indexpage: 1),
         backgroundColor: Colors.white,
         drawer: const DraweR(),
         appBar: AppBar(
@@ -105,12 +98,12 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
             itemBuilder: (context, index) {
               return FavoriteCard(
                 imagepath: favorite_list[index].imagepath,
-                name:favorite_list[index].name,
+                name: favorite_list[index].name,
                 phonenumber: favorite_list[index].phonenumber,
                 keey: ValueKey<WorkeR>(favorite_list[index]),
                 ondismissed: (dissmissid) {
                   setState(() {
-                   favorite_list.removeAt(index);
+                    favorite_list.removeAt(index);
                   });
                 },
               );
@@ -141,25 +134,22 @@ class FavoriteCard extends StatelessWidget {
       onDismissed: ondismissed,
       background: Container(
         color: Colors.red,
-        child: const Align(
-          alignment: Alignment.centerRight,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Icon(
-                Icons.remove,
-                color: Colors.white,
-                size: 20,
-              ),
-              SizedBox(
-                width: 5,
-              ),
-              Text(
-                'رەشکردن',
-                style: TextStyle(color: Colors.white, fontSize: 26),
-              ),
-            ],
-          ),
+        child: const Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Icon(
+              Icons.close,
+              color: Colors.white,
+              size: 20,
+            ),
+            SizedBox(
+              width: 5,
+            ),
+            Text(
+              'رەشکردن',
+              style: TextStyle(color: Colors.white, fontSize: 26),
+            ),
+          ],
         ),
       ),
       child: Container(
@@ -184,15 +174,15 @@ class FavoriteCard extends StatelessWidget {
                       size: 15,
                     ),
                     Icon(
-                      Icons.star,
+                      Icons.star_border,
                       size: 15,
                     ),
                     Icon(
-                      Icons.star,
+                      Icons.star_border,
                       size: 15,
                     ),
                     Icon(
-                      Icons.star,
+                      Icons.star_border,
                       size: 15,
                     ),
                   ],

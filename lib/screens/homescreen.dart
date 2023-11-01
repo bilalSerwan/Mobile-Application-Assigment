@@ -1,28 +1,21 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
 import 'package:rahand3/Worker.dart';
 import 'package:rahand3/bottom_navigation.dart';
 import 'package:rahand3/drawer.dart';
 import 'package:rahand3/screens/profileScreen.dart';
 
-// ignore: must_be_immutable
 class HomeScreen extends StatefulWidget {
-  int indexpage;
-  HomeScreen({this.indexpage = 0, super.key});
-
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late CircularBottomNavigationController _navigationController;
-
   @override
   void initState() {
     super.initState();
-    _navigationController =
-        CircularBottomNavigationController(widget.indexpage);
   }
 
   int imageindex = 0;
@@ -34,10 +27,6 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       drawer: const DraweR(),
-      bottomNavigationBar: Bottom_navbar(
-        navigationController: _navigationController,
-        indexpage: 0,
-      ),
       appBar: AppBar(
         backgroundColor: const Color(0xff006C71),
         title: const Icon(
@@ -57,280 +46,316 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          scrollDirection: Axis.vertical,
-          child: Column(
-            children: [
-              Container(
-                width: width * 0.92,
-                height: height * 0.18,
-                child: Stack(
-                  children: [
-                    CarouselSlider(
-                      items: [
-                        CardImageOfSlider(
-                          imagepath: 'images/sliderimages/image1.jpg',
-                        ),
-                        CardImageOfSlider(
-                          imagepath: 'images/sliderimages/image2.jpg',
-                        ),
-                        CardImageOfSlider(
-                          imagepath: 'images/sliderimages/image3.jpg',
-                        ),
-                        CardImageOfSlider(
-                          imagepath: 'images/sliderimages/image4.jpg',
-                        ),
-                      ],
-                      options: CarouselOptions(
-                        onPageChanged: (x, y) {
-                          setState(() {
-                            imageindex = x;
-                          });
-                        },
-                        autoPlay: true,
-                        height: height * 0.22,
-                        enlargeCenterPage: true,
-                        viewportFraction: 1.3,
-                      ),
-                    ),
-                    Positioned(
-                      bottom: 10,
-                      left: width * 0.35,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            margin: const EdgeInsets.all(5),
-                            width: 10,
-                            height: 10,
-                            decoration: BoxDecoration(
-                                color:
-                                    imageindex == 0 ? Colors.red : Colors.grey,
-                                borderRadius: const BorderRadius.all(
-                                    Radius.circular(30))),
+      body: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              scrollDirection: Axis.vertical,
+              child: Column(
+                children: [
+                  Container(
+                    width: width * 0.92,
+                    height: height * 0.18,
+                    child: Stack(
+                      children: [
+                        CarouselSlider(
+                          items: [
+                            CardImageOfSlider(
+                              imagepath: 'images/sliderimages/image1.jpg',
+                            ),
+                            CardImageOfSlider(
+                              imagepath: 'images/sliderimages/image2.jpg',
+                            ),
+                            CardImageOfSlider(
+                              imagepath: 'images/sliderimages/image3.jpg',
+                            ),
+                            CardImageOfSlider(
+                              imagepath: 'images/sliderimages/image4.jpg',
+                            ),
+                          ],
+                          options: CarouselOptions(
+                            onPageChanged: (x, y) {
+                              setState(() {
+                                imageindex = x;
+                              });
+                            },
+                            autoPlay: true,
+                            height: height * 0.22,
+                            enlargeCenterPage: true,
+                            viewportFraction: 1.3,
                           ),
-                          Container(
-                            margin: const EdgeInsets.all(5),
-                            width: 10,
-                            height: 10,
-                            decoration: BoxDecoration(
-                              color: imageindex == 1 ? Colors.red : Colors.grey,
-                              borderRadius: const BorderRadius.all(
-                                Radius.circular(30),
+                        ),
+                        Positioned(
+                          bottom: 10,
+                          left: width * 0.35,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                margin: const EdgeInsets.all(5),
+                                width: 10,
+                                height: 10,
+                                decoration: BoxDecoration(
+                                    color: imageindex == 0
+                                        ? Colors.red
+                                        : Colors.grey,
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(30))),
                               ),
+                              Container(
+                                margin: const EdgeInsets.all(5),
+                                width: 10,
+                                height: 10,
+                                decoration: BoxDecoration(
+                                  color: imageindex == 1
+                                      ? Colors.red
+                                      : Colors.grey,
+                                  borderRadius: const BorderRadius.all(
+                                    Radius.circular(30),
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                margin: const EdgeInsets.all(5),
+                                width: 10,
+                                height: 10,
+                                decoration: BoxDecoration(
+                                    color: imageindex == 2
+                                        ? Colors.red
+                                        : Colors.grey,
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(30))),
+                              ),
+                              Container(
+                                margin: const EdgeInsets.all(5),
+                                width: 10,
+                                height: 10,
+                                decoration: BoxDecoration(
+                                    color: imageindex == 3
+                                        ? Colors.red
+                                        : Colors.grey,
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(30))),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 6,
+                  ),
+                  //Best Of month
+                  Column(
+                    children: [
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Best Of Month',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
                             ),
                           ),
-                          Container(
-                            margin: const EdgeInsets.all(5),
-                            width: 10,
-                            height: 10,
-                            decoration: BoxDecoration(
-                                color:
-                                    imageindex == 2 ? Colors.red : Colors.grey,
-                                borderRadius: const BorderRadius.all(
-                                    Radius.circular(30))),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.all(5),
-                            width: 10,
-                            height: 10,
-                            decoration: BoxDecoration(
-                                color:
-                                    imageindex == 3 ? Colors.red : Colors.grey,
-                                borderRadius: const BorderRadius.all(
-                                    Radius.circular(30))),
+                          Text(
+                            'more',
+                            style: TextStyle(color: Colors.grey),
                           ),
                         ],
                       ),
-                    )
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 6,
-              ),
-              //Best Of month
-              Column(
-                children: [
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Best Of Month',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        padding: const EdgeInsets.all(0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Card(
+                              width: width,
+                              height: height,
+                              name: WorkeR.workerList[0].name,
+                              imagepath: WorkeR.workerList[0].imagepath,
+                              phonenumber: WorkeR.workerList[0].phonenumber,
+                              occupation: WorkeR.workerList[0].occupation,
+                            ),
+                            Card(
+                              width: width,
+                              height: height,
+                              name: WorkeR.workerList[1].name,
+                              imagepath: WorkeR.workerList[1].imagepath,
+                              phonenumber: WorkeR.workerList[1].phonenumber,
+                              occupation: WorkeR.workerList[1].occupation,
+                            ),
+                            Card(
+                              width: width,
+                              height: height,
+                              name: WorkeR.workerList[2].name,
+                              imagepath: WorkeR.workerList[2].imagepath,
+                              phonenumber: WorkeR.workerList[2].phonenumber,
+                              occupation: WorkeR.workerList[2].occupation,
+                            ),
+                            Card(
+                              width: width,
+                              height: height,
+                              name: WorkeR.workerList[3].name,
+                              imagepath: WorkeR.workerList[3].imagepath,
+                              phonenumber: WorkeR.workerList[3].phonenumber,
+                              occupation: WorkeR.workerList[3].occupation,
+                            ),
+                          ],
                         ),
                       ),
-                      Text(
-                        'more',
-                        style: TextStyle(color: Colors.grey),
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'New Members',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
+                          ),
+                          Text(
+                            'more',
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                        ],
+                      ),
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: [
+                            Card(
+                              width: width,
+                              height: height,
+                              name: WorkeR.workerList[4].name,
+                              imagepath: WorkeR.workerList[4].imagepath,
+                              phonenumber: WorkeR.workerList[4].phonenumber,
+                              occupation: WorkeR.workerList[4].occupation,
+                            ),
+                            Card(
+                              width: width,
+                              height: height,
+                              name: WorkeR.workerList[5].name,
+                              imagepath: WorkeR.workerList[5].imagepath,
+                              phonenumber: WorkeR.workerList[5].phonenumber,
+                              occupation: WorkeR.workerList[5].occupation,
+                            ),
+                            Card(
+                              width: width,
+                              height: height,
+                              name: WorkeR.workerList[6].name,
+                              imagepath: WorkeR.workerList[6].imagepath,
+                              phonenumber: WorkeR.workerList[6].phonenumber,
+                              occupation: WorkeR.workerList[6].occupation,
+                            ),
+                            Card(
+                              width: width,
+                              height: height,
+                              name: WorkeR.workerList[7].name,
+                              imagepath: WorkeR.workerList[7].imagepath,
+                              phonenumber: WorkeR.workerList[7].phonenumber,
+                              occupation: WorkeR.workerList[7].occupation,
+                            ),
+                          ],
+                        ),
+                      ),
+                      const Divider(
+                        height: 10,
+                        color: Colors.grey,
+                      ),
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Populer',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
+                          ),
+                          Text(
+                            'more',
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                        ],
+                      ),
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: [
+                            Card(
+                              width: width,
+                              height: height,
+                              name: WorkeR.workerList[8].name,
+                              imagepath: WorkeR.workerList[8].imagepath,
+                              phonenumber: WorkeR.workerList[8].phonenumber,
+                              occupation: WorkeR.workerList[8].occupation,
+                            ),
+                            Card(
+                              width: width,
+                              height: height,
+                              name: WorkeR.workerList[11].name,
+                              imagepath: WorkeR.workerList[11].imagepath,
+                              phonenumber: WorkeR.workerList[11].phonenumber,
+                              occupation: WorkeR.workerList[11].occupation,
+                            ),
+                            Card(
+                              width: width,
+                              height: height,
+                              name: WorkeR.workerList[9].name,
+                              imagepath: WorkeR.workerList[9].imagepath,
+                              phonenumber: WorkeR.workerList[9].phonenumber,
+                              occupation: WorkeR.workerList[9].occupation,
+                            ),
+                            Card(
+                              width: width,
+                              height: height,
+                              name: WorkeR.workerList[10].name,
+                              imagepath: WorkeR.workerList[10].imagepath,
+                              phonenumber: WorkeR.workerList[10].phonenumber,
+                              occupation: WorkeR.workerList[10].occupation,
+                            ),
+                          ],
+                        ),
                       ),
                     ],
-                  ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    padding: const EdgeInsets.all(0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Card(
-                          width: width,
-                          height: height,
-                          name: WorkeR.workerList[0].name,
-                          imagepath: WorkeR.workerList[0].imagepath,
-                          phonenumber: WorkeR.workerList[0].phonenumber,
-                          occupation: WorkeR.workerList[0].occupation,
-                        ),
-                        Card(
-                          width: width,
-                          height: height,
-                          name: WorkeR.workerList[1].name,
-                          imagepath: WorkeR.workerList[1].imagepath,
-                          phonenumber: WorkeR.workerList[1].phonenumber,
-                          occupation: WorkeR.workerList[1].occupation,
-                        ),
-                        Card(
-                          width: width,
-                          height: height,
-                          name: WorkeR.workerList[2].name,
-                          imagepath: WorkeR.workerList[2].imagepath,
-                          phonenumber: WorkeR.workerList[2].phonenumber,
-                          occupation: WorkeR.workerList[2].occupation,
-                        ),
-                        Card(
-                          width: width,
-                          height: height,
-                          name: WorkeR.workerList[3].name,
-                          imagepath: WorkeR.workerList[3].imagepath,
-                          phonenumber: WorkeR.workerList[3].phonenumber,
-                          occupation: WorkeR.workerList[3].occupation,
-                        ),
-                      ],
-                    ),
-                  ),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'New Members',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                        ),
-                      ),
-                      Text(
-                        'more',
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                    ],
-                  ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        Card(
-                          width: width,
-                          height: height,
-                          name: WorkeR.workerList[4].name,
-                          imagepath: WorkeR.workerList[4].imagepath,
-                          phonenumber: WorkeR.workerList[4].phonenumber,
-                          occupation: WorkeR.workerList[4].occupation,
-                        ),
-                        Card(
-                          width: width,
-                          height: height,
-                          name: WorkeR.workerList[5].name,
-                          imagepath: WorkeR.workerList[5].imagepath,
-                          phonenumber: WorkeR.workerList[5].phonenumber,
-                          occupation: WorkeR.workerList[5].occupation,
-                        ),
-                        Card(
-                          width: width,
-                          height: height,
-                          name: WorkeR.workerList[6].name,
-                          imagepath: WorkeR.workerList[6].imagepath,
-                          phonenumber: WorkeR.workerList[6].phonenumber,
-                          occupation: WorkeR.workerList[6].occupation,
-                        ),
-                        Card(
-                          width: width,
-                          height: height,
-                          name: WorkeR.workerList[7].name,
-                          imagepath: WorkeR.workerList[7].imagepath,
-                          phonenumber: WorkeR.workerList[7].phonenumber,
-                          occupation: WorkeR.workerList[7].occupation,
-                        ),
-                      ],
-                    ),
-                  ),
-                  const Divider(
-                    height: 10,
-                    color: Colors.grey,
-                  ),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Populer',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                        ),
-                      ),
-                      Text(
-                        'more',
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                    ],
-                  ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        Card(
-                          width: width,
-                          height: height,
-                          name: WorkeR.workerList[8].name,
-                          imagepath: WorkeR.workerList[8].imagepath,
-                          phonenumber: WorkeR.workerList[8].phonenumber,
-                          occupation: WorkeR.workerList[8].occupation,
-                        ),
-                        Card(
-                          width: width,
-                          height: height,
-                          name: WorkeR.workerList[11].name,
-                          imagepath: WorkeR.workerList[11].imagepath,
-                          phonenumber: WorkeR.workerList[11].phonenumber,
-                          occupation: WorkeR.workerList[11].occupation,
-                        ),
-                        Card(
-                          width: width,
-                          height: height,
-                          name: WorkeR.workerList[9].name,
-                          imagepath: WorkeR.workerList[9].imagepath,
-                          phonenumber: WorkeR.workerList[9].phonenumber,
-                          occupation: WorkeR.workerList[9].occupation,
-                        ),
-                        Card(
-                          width: width,
-                          height: height,
-                          name: WorkeR.workerList[10].name,
-                          imagepath: WorkeR.workerList[10].imagepath,
-                          phonenumber: WorkeR.workerList[10].phonenumber,
-                          occupation: WorkeR.workerList[10].occupation,
-                        ),
-                      ],
-                    ),
                   ),
                 ],
               ),
-            ],
+            ),
           ),
-        ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: SizedBox(
+              height: 90,
+              child: Stack(
+                children: [
+                  Positioned(
+                    top: 22,
+                    child: Container(
+                      height: 55,
+                      width: width,
+                      decoration: const BoxDecoration(
+                        color: Color(0xff006C71),
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Bottom_navbar(
+                    indexpage: 0,
+                  ),
+                ],
+              ),
+            ),
+          )
+        ],
       ),
     );
   }

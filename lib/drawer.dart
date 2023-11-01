@@ -9,7 +9,6 @@ class DraweR extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Drawer(
-      
       width: width * 0.55,
       backgroundColor: Colors.white,
       child: Padding(
@@ -159,9 +158,13 @@ class DraweR extends StatelessWidget {
                   CircleAvatar(
                     radius: 25,
                     backgroundColor: Color(0xff006C71),
-                    child: Icon(
-                      Icons.snapchat,
-                      color: Colors.white,
+                    child: CircleAvatar(
+                      backgroundColor: Colors.white,
+                      radius: 15,
+                      child: Icon(
+                        IonIcons.logo_snapchat,
+                        color: Color(0xff006C71),
+                      ),
                     ),
                   ),
                 ],

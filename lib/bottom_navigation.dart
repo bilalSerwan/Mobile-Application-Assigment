@@ -1,19 +1,29 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
+import 'package:rahand3/screens/NotficationScreen.dart';
 import 'package:rahand3/screens/homescreen.dart';
 import 'package:rahand3/screens/favoriteScreen.dart';
 import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
 import 'package:circular_bottom_navigation/tab_item.dart';
+import 'package:rahand3/screens/nearbbyScreen.dart';
 
 class Bottom_navbar extends StatefulWidget {
-  CircularBottomNavigationController navigationController;
   int indexpage;
-  Bottom_navbar(
-      {required this.navigationController, required this.indexpage, super.key});
+  Bottom_navbar({required this.indexpage, super.key});
   @override
   State<Bottom_navbar> createState() => _Bottom_navbarState();
 }
 
 class _Bottom_navbarState extends State<Bottom_navbar> {
+  late CircularBottomNavigationController navigationController;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    navigationController = CircularBottomNavigationController(widget.indexpage);
+  }
+
   @override
   Widget build(BuildContext context) {
     return CircularBottomNavigation(
@@ -29,17 +39,16 @@ class _Bottom_navbarState extends State<Bottom_navbar> {
             circleStrokeColor: Colors.white),
       ],
       barBackgroundColor: const Color(0xff006C71),
-      controller: widget.navigationController,
+      controller: navigationController,
       selectedPos: widget.indexpage,
       selectedCallback: (int? selectedPos) {
+        print('$selectedPos');
         setState(() {
           if (selectedPos == 0) {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => HomeScreen(
-                  indexpage: 0,
-                ),
+                builder: (context) => HomeScreen(),
               ),
             );
           }
@@ -47,9 +56,7 @@ class _Bottom_navbarState extends State<Bottom_navbar> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => FavoriteScreen(
-                  indexpage: 1,
-                ),
+                builder: (context) => FavoriteScreen(),
               ),
             );
           }
@@ -57,9 +64,7 @@ class _Bottom_navbarState extends State<Bottom_navbar> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => FavoriteScreen(
-                  indexpage: 1,
-                ),
+                builder: (context) => NearByScreen(),
               ),
             );
           }
@@ -67,9 +72,7 @@ class _Bottom_navbarState extends State<Bottom_navbar> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => FavoriteScreen(
-                  indexpage: 1,
-                ),
+                builder: (context) => const NotificationScreen(),
               ),
             );
           }

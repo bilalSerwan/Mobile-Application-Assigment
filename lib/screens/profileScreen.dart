@@ -1,5 +1,8 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
-import'package:icons_plus/icons_plus.dart';
+import 'package:icons_plus/icons_plus.dart';
+
 class profileScreen extends StatelessWidget {
   String name;
   String imagepath;
@@ -28,7 +31,7 @@ class profileScreen extends StatelessWidget {
         ),
         child: const Center(
           child: Icon(
-            Icons.telegram,
+            Icons.call,
             color: Colors.white,
             size: 70,
           ),
@@ -273,9 +276,9 @@ class profileScreen extends StatelessWidget {
                   CircleAvatar(
                     radius: 30,
                     backgroundColor: Color(0xff006C71),
-                    child:Icon(
-                    FontAwesome.instagram,
-                    size: 40,
+                    child: Icon(
+                      FontAwesome.instagram,
+                      size: 40,
                       color: Colors.white,
                     ),
                   ),
